@@ -1,11 +1,43 @@
-# vue-admin-template
+# amis-vue-template
 
 English | [简体中文](./README-zh.md)
 
-> A minimal vue admin template with Element UI & axios & iconfont & permission control & lint
+> This is built according to the vue-admin-template minimalist management background of huaunderpants great God. It only integrates the most basic dependency of Amis low code development, and can support vue+amis mixed development to achieve Amis code development rendering with minimal invasion of the original project. Its construction and operation fully comply with vue-admin-template. It should be noted that when jumping to the page of low code development of Amis, only one of the following parameters needs to be configured in the routing meta information, as follows:
 
-**Live demo:** http://panjiachen.github.io/vue-admin-template
+```javasrcipt
 
+  {
+    path: '/amis',
+    component: Layout,
+    redirect: '/amis/theme',
+    name: 'Amis',
+    meta: {
+      title: 'Amis',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: '/tabs',
+        name: 'tabs',
+        component: () => import('@/views/amis/index'),
+        meta: { title: 'tabs', icon: 'form', amisComponent: '/amis/tabs' }
+      },
+      {
+        path: '/table',
+        name: 'table',
+        component: () => import('@/views/amis/index'),
+        meta: { title: 'table', icon: 'form', amisComponent: '/amis/table' }
+      }
+    ]
+  },
+
+```
+
+We have added the amiscomponent parameter in the routing meta information meta to point to the .json file of Amis low code development, which should be located in the directory views and can be compared with Vue files can also be stored together in a new directory, but they must be under the directory views. The end of the path should point to the .json file without adding the file extension .json
+
+To learn more about vue-admin-template, please continue to read it or move to [author's home page](https://github.com/PanJiaChen)
+
+**Live demo:** <http://panjiachen.github.io/vue-admin-template>
 
 **The current version is `v4.0+` build on `vue-cli`. If you want to use the old version , you can switch branch to [tag/3.11.0](https://github.com/PanJiaChen/vue-admin-template/tree/tag/3.11.0), it does not rely on `vue-cli`**
 
@@ -34,7 +66,7 @@ npm install
 npm run dev
 ```
 
-This will automatically open http://localhost:9528
+This will automatically open <http://localhost:9528>
 
 ## Build
 
@@ -84,16 +116,8 @@ For `typescript` version, you can use [vue-typescript-admin-template](https://gi
 
 - [awesome-project](https://github.com/PanJiaChen/vue-element-admin/issues/2312)
 
-## Browsers support
-
-Modern browsers and Internet Explorer 10+.
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
-| --------- | --------- | --------- | --------- |
-| IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
 
 ## License
 
 [MIT](https://github.com/PanJiaChen/vue-admin-template/blob/master/LICENSE) license.
 
-Copyright (c) 2017-present PanJiaChen
