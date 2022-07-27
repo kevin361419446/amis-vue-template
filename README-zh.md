@@ -1,6 +1,39 @@
-# vue-admin-template
+# amis-vue-template
 
-> 这是一个极简的 vue admin 管理后台。它只包含了 Element UI & axios & iconfont & permission control & lint，这些搭建后台必要的东西。
+> 这是根据花裤衩大神的vue-admin-template极简管理后台搭建的，里面仅仅集成amis低代码开发最基本的依赖，可以支持vue+amis混合开发，在对原项目入侵最小的情况下实现amis代码开发渲染。其构建和运行完全遵照vue-admin-template，需要说明的是跳转amis低代码开发的页面时，仅需在路由元信息配置以下一个参数，如下：
+
+```javasrcipt
+
+  {
+    path: '/amis',
+    component: Layout,
+    redirect: '/amis/theme',
+    name: 'Amis',
+    meta: {
+      title: 'Amis',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: '/tabs',
+        name: 'tabs',
+        component: () => import('@/views/amis/index'),
+        meta: { title: 'tabs', icon: 'form', amisComponent: '/amis/tabs' }
+      },
+      {
+        path: '/table',
+        name: 'table',
+        component: () => import('@/views/amis/index'),
+        meta: { title: 'table', icon: 'form', amisComponent: '/amis/table' }
+      }
+    ]
+  },
+
+```
+
+我们在路由元信息meta中添加了amisComponent参数，用于指向amis低代码开发的.json文件，该文件应当位于目录views下，可以和.vue文件放在一起，也可以单独新建目录存放，但必须在目录views下。路径的末尾应当指向.json文件，但不用添加文件扩展名.json
+
+想深入了解vue-admin-template，请可以继续往下阅读，或者移步[作者主页](https://github.com/PanJiaChen)
 
 [线上地址](http://panjiachen.github.io/vue-admin-template)
 
@@ -87,22 +120,6 @@ npm run lint -- --fix
 ```
 
 更多信息请参考 [使用文档](https://panjiachen.github.io/vue-element-admin-site/zh/)
-
-## 购买贴纸
-
-你也可以通过 购买[官方授权的贴纸](https://smallsticker.com/product/vue-element-admin) 的方式来支持 vue-element-admin - 每售出一张贴纸，我们将获得 2 元的捐赠。
-
-## Demo
-
-![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
-
-## Browsers support
-
-Modern browsers and Internet Explorer 10+.
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
-| --------- | --------- | --------- | --------- |
-| IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
 
 ## License
 

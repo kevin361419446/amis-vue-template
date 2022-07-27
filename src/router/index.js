@@ -89,14 +89,14 @@ export const constantRoutes = [
       {
         path: '/tabs',
         name: 'tabs',
-        component: () => import('@/views/amis/index'),
-        meta: { title: 'tabs', icon: 'form', isAmis: true, amisComponent: '/amis/tabs' }
+        component: () => import('@/views/dashboard/index'),
+        meta: { title: 'tabs', icon: 'form', amisComponent: '/amis/tabs' }
       },
       {
         path: '/table',
         name: 'table',
-        component: () => import('@/views/amis/index'),
-        meta: { title: 'table', icon: 'form', isAmis: true, amisComponent: '/amis/table' }
+        component: () => import('@/views/dashboard/index'),
+        meta: { title: 'table', icon: 'form', amisComponent: '/amis/table' }
       }
     ]
   },

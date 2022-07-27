@@ -19,7 +19,7 @@ export default {
       return this.$route.path
     },
     isAmis() {
-      return !!this.$route.meta.isAmis
+      return !!this.$route.meta.amisComponent
     },
     schema() {
       return require(`../../views${this.$route.meta.amisComponent}.json`)
