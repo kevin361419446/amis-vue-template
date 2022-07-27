@@ -97,6 +97,12 @@ export const constantRoutes = [
         name: 'table',
         component: () => import('@/views/dashboard/index'),
         meta: { title: 'table', icon: 'form', amisComponent: '/amis/table' }
+      },
+      {
+        path: '/form',
+        name: 'form',
+        component: () => import('@/views/dashboard/index'),
+        meta: { title: 'form', icon: 'form', amisComponent: '/amis/form' }
       }
     ]
   },

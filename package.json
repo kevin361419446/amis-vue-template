@@ -1,7 +1,7 @@
 {
-  "name": "vue-admin-template",
+  "name": "amis-vue-template",
   "version": "4.4.0",
-  "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
+  "description": "Amis Vue Template with Element UI & axios & iconfont & permission control & lint",
   "author": "Pan <panfree23@gmail.com>",
   "scripts": {
     "dev": "vue-cli-service serve",
